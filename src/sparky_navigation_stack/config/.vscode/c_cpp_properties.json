@@ -1,0 +1,19 @@
+{
+  "configurations": [
+    {
+      "browse": {
+        "databaseFilename": "",
+        "limitSymbolsToIncludedHeaders": true
+      },
+      "includePath": [
+        "/opt/ros/melodic/include/**",
+        "/home/navid/sparky/src/sparky_controller/include/**",
+        "/home/navid/sparky/src/sparky_navigation_stack/include/**",
+        "/home/navid/sparky/src/sparky_swarm/include/**",
+        "/usr/include/**"
+      ],
+      "name": "ROS"
+    }
+  ],
+  "version": 4
+}

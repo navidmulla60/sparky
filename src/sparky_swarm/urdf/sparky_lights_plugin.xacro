@@ -1,0 +1,11 @@
+<robot >
+    <gazebo>
+        <plugin name='light_control' filename='libFlashLightPlugin.so'>
+        <enable>true</enable>
+        <light>
+          <id>base_link/light_source1</id>
+          <duration>0.5</duration>
+          <interval>0.5</interval>
+        </light>
+    </gazebo>
+</robot>

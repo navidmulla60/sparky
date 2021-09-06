@@ -1,0 +1,8 @@
+prefix=/home/navid/sparky/install
+
+Name: sparky_controller
+Description: Description of sparky_controller
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

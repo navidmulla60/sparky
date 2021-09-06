@@ -1,0 +1,2 @@
+sparky:sparky_controller:sparky_navigation_stack:sparky_swarm
+-DCATKIN_DEVEL_PREFIX=/home/navid/sparky/devel -DCMAKE_INSTALL_PREFIX=/home/navid/sparky/install -G Unix Makefiles

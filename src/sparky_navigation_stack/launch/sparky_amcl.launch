@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<launch>
+
+    
+    
+    <param name="use_sim-time" value="true"/>
+    <arg name="map_file" value="/home/navid/sparky/src/sparky_navigation_stack/maps/newmap.yaml"/>
+    <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)" respawn="true"/> 
+
+    <node pkg="amcl" type="amcl" name="amcl" output="screen">
+
+        <param name="use_sim-time" value="true"/>
+        <param name="odom_frame_id" value="odom"/>
+        <param name="odom_model_type" value="diff-corrected"/>
+        <param name="base_frame_id" value="base_footprint"/>
+        <param name="update_min_d" value="0.1"/>
+        <param name="update_min_a" value="0.2"/>
+        <param name="min_particles" value="500"/>
+
+        <remap from="scan" to="/Laser/scan"/>
+
+    </node>
+
+</launch>

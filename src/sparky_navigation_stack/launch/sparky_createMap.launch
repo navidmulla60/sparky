@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- <node pkg="rviz" type="rviz" name="rviz" /> -->
+
+    <include file="$(find sparky_controller)/launch/sparky_teleop.launch"/>
+    <!-- <node pkg="tf" type="static_transform_publisher" name="map to odom" args="0 0 0 0 0 0 map odom 50" /> -->
+
+    <node name="slam_gmapping" pkg="gmapping" type="slam_gmapping">
+        <remap from="/scan" to="/Laser/scan"/>
+        <param name="base_frame" value="base_footprint"/>
+       
+        
+    </node>
+
+</launch>

@@ -1,0 +1,48 @@
+<launch>
+    <!-- <arg name="jp" /> -->
+    <arg name="robot_name"/>
+    <arg name="x_pos"/>
+    <arg name="y_pos"/>
+    <arg name="z_pos"/>
+    <arg name="joint_publisher" default="false" />
+
+    
+    <param name="/use_sim_time" value="true"/>
+    <!-- <group if="$(arg joint_publisher)">
+        <include file="$(find sparky_swarm)/launch/joint_publisher_robot.launch" /> 
+    </group> -->
+    
+    <param name="robot_description" command="$(find xacro)/xacro --inorder $(find sparky)/urdf/sparky.xacro"/> 
+
+    <group ns="$(arg robot_name)">
+      
+      <param name="tf_prefix" value="$(arg robot_name)"/>
+       <!-- <include file="$(find sparky_swarm)/launch/joint_publisher_robot.launch">
+         <arg name="robot_name" value="$(arg robot_name)"/>
+        </include>  -->
+        <node  pkg="robot_state_publisher"  type="robot_state_publisher" name="robot_state_publisher"> </node> 
+
+     
+        
+         <node pkg="tf" type="static_transform_publisher" name="$(arg robot_name)leftFrontWheel_map" 
+            args="0.0 0.0 0.0 0.0 0.0 0.0  /$(arg robot_name)/base_link /$(arg robot_name)/front_left_wheel  100" />
+         <node pkg="tf" type="static_transform_publisher" name="$(arg robot_name)rightFrontWheel_map" 
+            args="0.0 0.0 0.0 0.0 0.0 0.0  /$(arg robot_name)/base_link /$(arg robot_name)/front_right_wheel  100" />
+         <node pkg="tf" type="static_transform_publisher" name="$(arg robot_name)backLeftWheel_map" 
+            args="0.0 0.0 0.0 0.0 0.0 0.0  /$(arg robot_name)/base_link /$(arg robot_name)/back_left_wheel  100" />
+         <node pkg="tf" type="static_transform_publisher" name="$(arg robot_name)backRightWheel_map" 
+            args="0.0 0.0 0.0 0.0 0.0 0.0  /$(arg robot_name)/base_link /$(arg robot_name)/back_right_wheel  100" /> 
+
+        
+
+      
+        <node name="spawn_model" pkg="gazebo_ros" type="spawn_model" 
+
+            args="-urdf -param /robot_description    -x $(arg x_pos) 
+                                                -y $(arg y_pos)
+                                                -z $(arg z_pos)
+                                                -model $(arg robot_name)"  
+            output="screen"/>
+       
+    </group>
+</launch>

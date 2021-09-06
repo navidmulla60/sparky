@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+    <gazebo>
+        <plugin name="skid_steer_drive_controller" filename="libgazebo_ros_skid_steer_drive.so">
+          <updateRate>10.0</updateRate>
+          <alwaysOn>false</alwaysOn>
+          <!-- <legacyMode>false</legacyMode> -->
+          <!-- <robotNamespace>/sparky1</robotNamespace> -->
+          <leftFrontJoint>front_left_wheel_joint</leftFrontJoint>
+          <rightFrontJoint>front_right_wheel_joint</rightFrontJoint>
+          <leftRearJoint>back_left_wheel_joint</leftRearJoint>
+          <rightRearJoint>back_right_wheel_joint</rightRearJoint>
+          <wheelSeparation>0.3</wheelSeparation>
+          <wheelDiameter>0.072</wheelDiameter>
+          <robotBaseFrame>base_footprint</robotBaseFrame>
+          <enable_odom_tf>true</enable_odom_tf > 
+          <torque>20</torque>
+          
+          <commandTopic>cmd_vel</commandTopic>
+          <odometryFrame>odom</odometryFrame>
+          <odometryTopic>odom</odometryTopic>
+          <covariance_x>0.0001</covariance_x>
+          <covariance_y>0.0001</covariance_y>
+          <covariance_yaw>0.0001</covariance_yaw>
+          <broadcastTF>true</broadcastTF>
+          <!-- <odometrySource>world</odometrySource> -->
+          <publishOdomTF>true</publishOdomTF>
+          <publishWheelJointState>true</publishWheelJointState>
+          <publishWheelTF>true</publishWheelTF>
+          <publishTf>1</publishTf>
+          <broadcastTF>1</broadcastTF>
+
+        </plugin>
+    </gazebo>
+
+
+
+
+
+
+
+      
+</robot>

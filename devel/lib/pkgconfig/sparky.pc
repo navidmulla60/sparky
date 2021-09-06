@@ -1,0 +1,8 @@
+prefix=/home/navid/sparky/devel
+
+Name: sparky
+Description: Description of sparky
+Version: 1.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

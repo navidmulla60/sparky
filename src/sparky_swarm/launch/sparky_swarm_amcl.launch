@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<launch>
+
+    <arg name="amcl_count"/>
+    <arg name="robot_name"/>
+
+    <param name="use_sim-time" value="true"/>
+   
+    <node pkg="amcl" type="amcl" name="amcl_$(arg robot_name)" output="screen">
+                                     
+        
+        <param name="odom_frame_id" value="$(arg robot_name)/odom"/>
+        <param name="odom_model_type" value="diff-corrected"/>
+        <param name="base_frame_id" value="$(arg robot_name)/base_footprint"/>
+        <param name="update_min_d" value="0.1"/>
+        <param name="update_min_a" value="0.2"/>
+        <param name="min_particles" value="500"/>
+
+        <remap from="scan" to="/$(arg robot_name)/Laser/scan"/>
+
+        <param name="global_frame_id" value="map"/>
+    
+        <remap from="/amcl/parameter_descriptions"  to="/$(arg robot_name)/amcl/parameter_descriptions"/>
+        <remap from="/amcl/parameter_updates"       to="/$(arg robot_name)//amcl/parameter_updates"/>
+        <remap from="initialpose"                   to="/$(arg robot_name)/initialpose"/>
+        <remap from="amcl_pose"                     to="/$(arg robot_name)/amcl_pose"/>
+        <remap from="particlecloud"                 to="/$(arg robot_name)/particlecloud"/>
+        <remap from="map" to="/map" />
+
+    </node>
+
+</launch>

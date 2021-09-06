@@ -1,0 +1,21 @@
+
+<launch>
+    
+    <arg name="amcl_count"/>
+    <!-- <arg name="movebase_count" /> -->
+    <arg name="robot_name" />
+    
+   
+  
+ 
+    <include file="$(find sparky_swarm)/launch/sparky_swarm_amcl.launch">
+        <arg name="amcl_count" value="$(arg amcl_count"/>
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+    <include file="$(find sparky_swarm)/launch/sparky_swarm_move_base.launch">
+   
+        <arg name="robot_name" value="$(arg robot_name)"/>
+    </include>
+        
+
+</launch>

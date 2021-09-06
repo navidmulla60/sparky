@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<launch>
+    
+    <!-- <param name="use_sim-time" value="true"/>
+    <arg name="map_file" value="/home/navid/sparky/src/sparky_navigation_stack/maps/newmap.yaml"/>
+    <node pkg="map_server" type="map_server" name="map_server" args="$(arg map_file)" respawn="true"/>  -->
+    
+
+    <include file="$(find sparky_navigation_stack)/launch/sparky_amcl.launch"/>
+    <include file="$(find sparky_navigation_stack)/launch/sparky_move_base.launch"/>
+    
+    <!-- <node  name="rviz" pkg="rviz" type="rviz"/> -->
+</launch>

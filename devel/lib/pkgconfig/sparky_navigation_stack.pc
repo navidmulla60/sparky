@@ -1,0 +1,8 @@
+prefix=/home/navid/sparky/devel
+
+Name: sparky_navigation_stack
+Description: Description of sparky_navigation_stack
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
